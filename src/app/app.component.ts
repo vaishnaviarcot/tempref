@@ -11,13 +11,12 @@ export class AppComponent implements OnInit {
   title(title: any) {
     throw new Error('Method not implemented.');
   }
-
   constructor(private router: Router) {}
   ngOnInit() {
     this.router.events.pipe(
       filter(event => 
         event instanceof NavigationStart || 
-        event instanceof NavigationEnd || 
+        event instanceof NavigationEnd ||
         event instanceof NavigationError
       )
     ).subscribe((event) => {
